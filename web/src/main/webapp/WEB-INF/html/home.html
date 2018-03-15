@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <form th:action="@{/information}" method="get">
+        <button th:text="#{inf}"></button>
+    </form>
+
+    <form th:action="@{/login}" method="get">
+    <button th:text="#{log.in}"></button>
+    </form>
+
+    <form th:action="@{/createApplication}" method="get">
+    <button class="btn btn-success" th:text="#{create.application}"></button>
+    </form>
+
+    <form th:action="@{/admin}" method="get">
+    <button th:text="#{admin}"></button>
+    </form>
+</body>
+</html>

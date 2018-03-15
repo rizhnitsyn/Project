@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/chooseRoom}" method="post" th:object="${baseApplication}">
+
+    <div class="form-group">
+        <label for="arrivalDay" th:text="#{arrival.day}"></label>
+        <input type="date" class="form-control" id="arrivalDay" th:field="*{dayOfArrival}">
+    </div>
+
+    <div class="form-group">
+        <label for="departureDay" th:text="#{departure.day}"></label>
+        <input type="date" class="form-control" id="departureDay" th:field="*{dayOfDeparture}">
+    </div>
+
+    <div class="form-group">
+        <label for="numberOfPlaces" th:text="#{room.number.of.places}"></label>
+        <input type="number" class="form-control" id="numberOfPlaces" th:field="*{numberOfPlaces}">
+    </div>
+
+    <div class="form-group">
+        <div class="radio">
+            <label for="roomType" th:each="type : ${allRoomTypes}">
+                <input type="radio" id="roomType" th:field="*{roomTypeId}" th:value="${type.id}">
+                <span th:text="${#strings.toLowerCase(type.title)}"></span>
+            </label>
+        </div>
+    </div>
+
+    <button class="btn btn-success" th:text="#{choose.room}"></button>
+</form>
+</body>
+</html>
